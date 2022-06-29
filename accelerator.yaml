@@ -1,5 +1,5 @@
 accelerator:
-  displayName: Tanzu Java Spring Api Provider (37)
+  displayName: Tanzu Java Spring Api Provider (38)
   description: A sample Spring Boot web application built with Tanzu supply-chain that uses sprindocs to generate an openAPI document.
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
@@ -16,32 +16,16 @@ accelerator:
     label: Prefix for the container image repository
     defaultValue: dev.local
     required: true
-  - name: toggle
+  - name: exposeOpenAPIEndpoint
     label: Will This Project Expose an API?
     display: true
     dataType: boolean
     defaultValue: true
-  - name: exposeOpenAPIEndpoint2
-    label: 'depends on toggle'
-    description: Visibility depends on the value of the toggle option being true.
-    dependsOn:
-      name: toggle
-    defaultValue: text value
-  - name: exposeOpenAPIEndpoint
-    label: Expose OpenAPI endpoint
-    inputType: select
-    display: true
-    defaultValue: "true"
-    choices:
-      - text: "true"
-        value: "true"
-      - text: "false"
-        value: "false"
-#Testing
+
 engine:
   merge:
   - include: [ "**/*" ]
-    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "grype.yaml", "catalog/*.yaml", ".github/workflows/**", "src/main/resources/*.yml", "pom.xml" ]
+    exclude: [ "config/*.yaml", "Tiltfile", "README.md", "grype.yaml", "catalog/*.yaml", ".github/workflows/**", "pom.xml" ]
   - include: [ "config/*.yaml", "Tiltfile" ]
     chain:
     - type: ReplaceText
@@ -66,21 +50,15 @@ engine:
         with: "#artifactId"
     - type: RewritePath
       rewriteTo: "#filename"
-  - include: [ "src/main/resources/*.yml" ]
-    chain:
-      - type: ReplaceText
-        substitutions:
-          - text: expose-open-api-endpoint
-            with: "#exposeOpenAPIEndpoint"
   - include: [ "pom.xml" ]
     chain:
       - type: ReplaceText
-        condition: "#toggle"
+        condition: "#exposeOpenAPIEndpoint"
         substitutions:
-          - text: <!-- TEST -->
+          - text: <!-- OPEN API DEPENDENCY PLACEHOLDER -->
             with: "'<dependency>\n			<groupId>org.springdoc</groupId>\n			<artifactId>springdoc-openapi-ui</artifactId>\n			<version>1.6.9</version>\n		</dependency>'"
       - type: ReplaceText
-        condition: "!#toggle"
+        condition: "!#exposeOpenAPIEndpoint"
         substitutions:
-          - text: <!-- TEST -->
-            with: "'T'"
+          - text: <!-- OPEN API DEPENDENCY PLACEHOLDER -->
+            with: "''"

@@ -42,7 +42,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- TEST -->
+		<!-- OPEN API DEPENDENCY PLACEHOLDER -->
 
     	<!-- live reload -->
 		<dependency>
