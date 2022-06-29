@@ -21,6 +21,12 @@ accelerator:
     display: true
     dataType: boolean
     defaultValue: true
+  - name: exposeOpenAPIEndpoint2
+    label: 'depends on toggle'
+    description: Visibility depends on the value of the toggle option being true.
+    dependsOn:
+      name: toggle
+    defaultValue: text value
   - name: exposeOpenAPIEndpoint
     label: Expose OpenAPI endpoint
     inputType: select
