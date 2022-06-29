@@ -1,5 +1,5 @@
 accelerator:
-  displayName: Tanzu Java Spring Api Provider (36)
+  displayName: Tanzu Java Spring Api Provider (37)
   description: A sample Spring Boot web application built with Tanzu supply-chain that uses sprindocs to generate an openAPI document.
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
@@ -80,14 +80,7 @@ engine:
           - text: <!-- TEST -->
             with: "'<dependency>\n			<groupId>org.springdoc</groupId>\n			<artifactId>springdoc-openapi-ui</artifactId>\n			<version>1.6.9</version>\n		</dependency>'"
       - type: ReplaceText
-        condition: "#toggle"
+        condition: "!#toggle"
         substitutions:
           - text: <!-- TEST -->
             with: "'T'"
-
-
-#  <dependency>
-#  <groupId>org.springdoc</groupId>
-#  <artifactId>springdoc-openapi-ui</artifactId>
-#  <version>1.6.9</version>
-#  </dependency>
