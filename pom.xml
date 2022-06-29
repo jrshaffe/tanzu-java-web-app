@@ -42,14 +42,14 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- OPEN API DEPENDENCY PLACEHOLDER -->
-
     	<!-- live reload -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- OPEN API DEPENDENCY PLACEHOLDER -->
 
 	</dependencies>
 

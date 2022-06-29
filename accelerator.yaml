@@ -1,5 +1,5 @@
 accelerator:
-  displayName: Tanzu Java Spring Api Provider (38)
+  displayName: Tanzu Java Spring Api Provider (39)
   description: A sample Spring Boot web application built with Tanzu supply-chain that uses sprindocs to generate an openAPI document.
   iconUrl: https://github.com/sample-accelerators/icons/raw/master/icon-boot.png
   tags:
@@ -17,10 +17,10 @@ accelerator:
     defaultValue: dev.local
     required: true
   - name: exposeOpenAPIEndpoint
-    label: Will This Project Expose an API?
+    label: Expose OpenAPI endpoint?
     display: true
     dataType: boolean
-    defaultValue: true
+    defaultValue: false
 
 engine:
   merge:
