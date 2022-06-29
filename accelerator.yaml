@@ -80,7 +80,7 @@ engine:
           - text: <!-- TEST -->
             with: "#artifactId"
       - type: ReplaceText
-        condition: "#toggle == 'false'"
+        condition: "#toggle"
         substitutions:
           - text: <!-- TEST -->
             with: "T"
